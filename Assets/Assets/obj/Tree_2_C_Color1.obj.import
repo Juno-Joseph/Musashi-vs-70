@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dk37bhqe70h6a"
+path="res://.godot/imported/Tree_2_C_Color1.obj-d2d3d3141619cee9d5594e3459d6eb6f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Tree_2_C_Color1.obj-d2d3d3141619cee9d5594e3459d6eb6f.mesh"]
+
+source_file="res://Assets/Assets/obj/Tree_2_C_Color1.obj"
+dest_files=["res://.godot/imported/Tree_2_C_Color1.obj-d2d3d3141619cee9d5594e3459d6eb6f.mesh", "res://.godot/imported/Tree_2_C_Color1.obj-d2d3d3141619cee9d5594e3459d6eb6f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

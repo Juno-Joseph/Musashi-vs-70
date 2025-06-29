@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://blou7exnjvbn8"
+path="res://.godot/imported/Bush_1_D_Color1.obj-840337dc0eb4d1b0e083b85425bf031a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Bush_1_D_Color1.obj-840337dc0eb4d1b0e083b85425bf031a.mesh"]
+
+source_file="res://Assets/Assets/obj/Bush_1_D_Color1.obj"
+dest_files=["res://.godot/imported/Bush_1_D_Color1.obj-840337dc0eb4d1b0e083b85425bf031a.mesh", "res://.godot/imported/Bush_1_D_Color1.obj-840337dc0eb4d1b0e083b85425bf031a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

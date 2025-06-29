@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://brldmvd5kbikm"
+path="res://.godot/imported/Rock_1_O_Color1.obj-0d7e230cc06c67e1337ec5d4b7a63b03.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Rock_1_O_Color1.obj-0d7e230cc06c67e1337ec5d4b7a63b03.mesh"]
+
+source_file="res://Assets/Assets/obj/Rock_1_O_Color1.obj"
+dest_files=["res://.godot/imported/Rock_1_O_Color1.obj-0d7e230cc06c67e1337ec5d4b7a63b03.mesh", "res://.godot/imported/Rock_1_O_Color1.obj-0d7e230cc06c67e1337ec5d4b7a63b03.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
