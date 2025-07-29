@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doo5dms042442"
-path="res://.godot/imported/Musashi Tile Set.png-904a00d6b2c677d6aa8f6e89b07a282a.ctex"
+uid="uid://bao2s6x2blcp"
+path="res://.godot/imported/Musashi Tile Set-sheet.png-d1641b5d9825ac6d0a9c1ac7b16dbd67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Musashi Tile Set.png"
-dest_files=["res://.godot/imported/Musashi Tile Set.png-904a00d6b2c677d6aa8f6e89b07a282a.ctex"]
+source_file="res://Assets/Musashi Tile Set-sheet.png"
+dest_files=["res://.godot/imported/Musashi Tile Set-sheet.png-d1641b5d9825ac6d0a9c1ac7b16dbd67.ctex"]
 
 [params]
 
