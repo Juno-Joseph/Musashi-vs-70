@@ -1,30 +1,41 @@
 extends CharacterBody2D
 
 @export var speed : float = 200
-@export var animation_tree : AnimationTree
+@export var animation_tree : AnimationTree 
+@onready var musashi = get_owner()
 
-var input : Vector2
+
+var input : Vector2 = Vector2.ZERO
 var playback : AnimationNodeStateMachinePlayback
 
 func _ready():
-	playback = animation_tree["parameters/playback"]
+	animation_tree.active = true
+
+func _process(delta):
+	update_animation_parameters()
+	
 
 func _physics_process(delta: float) -> void:
-	input = Input.get_vector("left", "right", "up", "down")
-	velocity = input * speed
-	move_and_slide()
-	select_animation()
-	update_animation_parameters()
+	input = Input.get_vector("left", "right", "up", "down").normalized()
 
-func select_animation():
-	if velocity == Vector2.ZERO:
-		playback.travel("Idle")
+	if input:
+		velocity = input * speed
 	else:
-		playback.travel("Walk")
+		velocity = Vector2.ZERO
+	
+	if Input.is_action_just_pressed("Attack"):
+		speed = 25
+	if Input.is_action_just_released("Attack"):
+		speed = 200
+	
+	move_and_slide()
 
 func update_animation_parameters():
-	if input == Vector2.ZERO:
-		return
+	animation_tree.set("parameters/conditions/Idle", velocity == Vector2.ZERO)
+	animation_tree.set("parameters/conditions/Run", velocity != Vector2.ZERO)
+	animation_tree.set("parameters/conditions/Attack", Input.is_action_just_pressed("Attack"))
 	
-	animation_tree["parameters/Idle/blend_position"] = input
-	animation_tree["parameters/Walk/blend_position"] = input
+	if(input != Vector2.ZERO):
+		animation_tree["parameters/Idle/blend_position"] = input
+		animation_tree["parameters/Run/blend_position"] = input
+		animation_tree["parameters/Attack/blend_position"] = input
