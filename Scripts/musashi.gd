@@ -22,12 +22,7 @@ func _physics_process(delta: float) -> void:
 		velocity = input * speed
 	else:
 		velocity = Vector2.ZERO
-	
-	if Input.is_action_just_pressed("Attack"):
-		speed = 25
-	if Input.is_action_just_released("Attack"):
-		speed = 200
-	
+
 	move_and_slide()
 
 func update_animation_parameters():
@@ -35,7 +30,8 @@ func update_animation_parameters():
 	animation_tree.set("parameters/conditions/Run", velocity != Vector2.ZERO)
 	animation_tree.set("parameters/conditions/Attack", Input.is_action_just_pressed("Attack"))
 	
-	if(input != Vector2.ZERO):
+	if input != Vector2.ZERO:
 		animation_tree["parameters/Idle/blend_position"] = input
 		animation_tree["parameters/Run/blend_position"] = input
 		animation_tree["parameters/Attack/blend_position"] = input
+	
