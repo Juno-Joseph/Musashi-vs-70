@@ -29,9 +29,11 @@ func update_animation_parameters():
 	animation_tree.set("parameters/conditions/Idle", velocity == Vector2.ZERO)
 	animation_tree.set("parameters/conditions/Run", velocity != Vector2.ZERO)
 	animation_tree.set("parameters/conditions/Attack", Input.is_action_just_pressed("Attack"))
+	animation_tree.set("parameters/conditions/Block", Input.is_action_just_pressed("Block"))
 	
 	if input != Vector2.ZERO:
 		animation_tree["parameters/Idle/blend_position"] = input
 		animation_tree["parameters/Run/blend_position"] = input
 		animation_tree["parameters/Attack/blend_position"] = input
+		animation_tree["parameters/Block/blend_position"] = input
 	
