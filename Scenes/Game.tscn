@@ -11,6 +11,6 @@
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 
 [node name="TileMap" parent="." instance=ExtResource("2_qxrlw")]

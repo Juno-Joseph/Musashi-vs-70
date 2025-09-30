@@ -10,11 +10,7 @@ var playback : AnimationNodeStateMachinePlayback
 
 func _ready():
 	animation_tree.active = true
-
-func _process(delta):
-	update_animation_parameters()
 	
-
 func _physics_process(delta: float) -> void:
 	input = Input.get_vector("left", "right", "up", "down").normalized()
 
@@ -24,6 +20,7 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 
 	move_and_slide()
+	update_animation_parameters()
 
 func update_animation_parameters():
 	animation_tree.set("parameters/conditions/Idle", velocity == Vector2.ZERO)
