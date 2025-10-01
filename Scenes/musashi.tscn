@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://yiy48pse44h1"]
+[gd_scene load_steps=107 format=3 uid="uid://yiy48pse44h1"]
 
 [ext_resource type="Script" uid="uid://bhnj2jychtab6" path="res://Scripts/musashi.gd" id="1_kwxo6"]
 [ext_resource type="Texture2D" uid="uid://t4x2lc4hl8eu" path="res://Assets/Musashi/isometric musashi.png" id="2_c0gjr"]
@@ -137,6 +137,48 @@ blend_point_7/node = SubResource("AnimationNodeAnimation_wotx3")
 blend_point_7/pos = Vector2(-0.6, 0.7)
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_trv03"]
+animation = &"Parry_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0a4in"]
+animation = &"Parry_3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_spnlf"]
+animation = &"Parry_1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_eucqr"]
+animation = &"Parry_6"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tp80u"]
+animation = &"Parry_9"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wtqkl"]
+animation = &"Parry_8"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_casfe"]
+animation = &"Parry_7"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pp34o"]
+animation = &"Run_4"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_dh3yb"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_trv03")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_0a4in")
+blend_point_1/pos = Vector2(0.6, 0.7)
+blend_point_2/node = SubResource("AnimationNodeAnimation_spnlf")
+blend_point_2/pos = Vector2(-0.6, 0.7)
+blend_point_3/node = SubResource("AnimationNodeAnimation_eucqr")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_tp80u")
+blend_point_4/pos = Vector2(0.6, -0.7)
+blend_point_5/node = SubResource("AnimationNodeAnimation_wtqkl")
+blend_point_5/pos = Vector2(0, -1)
+blend_point_6/node = SubResource("AnimationNodeAnimation_casfe")
+blend_point_6/pos = Vector2(-0.6, -0.7)
+blend_point_7/node = SubResource("AnimationNodeAnimation_pp34o")
+blend_point_7/pos = Vector2(-1, 0)
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tcxak"]
 animation = &"Run_2"
 
@@ -227,18 +269,24 @@ advance_condition = &"Idle"
 advance_mode = 2
 advance_condition = &"Block"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3polq"]
+advance_mode = 2
+advance_condition = &"Parry"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_c0gjr"]
 states/Attack/node = SubResource("AnimationNodeBlendSpace2D_0t0so")
 states/Attack/position = Vector2(350.016, 79.2537)
 states/Block/node = SubResource("AnimationNodeBlendSpace2D_trv03")
-states/Block/position = Vector2(349.92, 350.2)
+states/Block/position = Vector2(350.477, 349.4)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_w4rrb")
 states/Idle/position = Vector2(202.2, 227.469)
+states/Parry/node = SubResource("AnimationNodeBlendSpace2D_dh3yb")
+states/Parry/position = Vector2(349.253, 449.4)
 states/Run/node = SubResource("AnimationNodeBlendSpace2D_liv8l")
 states/Run/position = Vector2(487.8, 227.524)
 states/Start/position = Vector2(-11.84, 226.815)
-transitions = ["Run", "Idle", SubResource("AnimationNodeStateMachineTransition_tdweo"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_64gcv"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_nh3om"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_310jx"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_gnn05"), "Attack", "Run", SubResource("AnimationNodeStateMachineTransition_dbxpg"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_qv5rc"), "Block", "Run", SubResource("AnimationNodeStateMachineTransition_lwvwy"), "Run", "Block", SubResource("AnimationNodeStateMachineTransition_20ay2"), "Block", "Idle", SubResource("AnimationNodeStateMachineTransition_w65o3"), "Idle", "Block", SubResource("AnimationNodeStateMachineTransition_0t0so")]
-graph_offset = Vector2(-359, 39)
+transitions = ["Run", "Idle", SubResource("AnimationNodeStateMachineTransition_tdweo"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_64gcv"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_nh3om"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_310jx"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_gnn05"), "Attack", "Run", SubResource("AnimationNodeStateMachineTransition_dbxpg"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_qv5rc"), "Block", "Run", SubResource("AnimationNodeStateMachineTransition_lwvwy"), "Run", "Block", SubResource("AnimationNodeStateMachineTransition_20ay2"), "Block", "Idle", SubResource("AnimationNodeStateMachineTransition_w65o3"), "Idle", "Block", SubResource("AnimationNodeStateMachineTransition_0t0so"), "Block", "Parry", SubResource("AnimationNodeStateMachineTransition_3polq")]
+graph_offset = Vector2(-381, 249)
 
 [sub_resource type="Animation" id="Animation_qv5rc"]
 resource_name = "Block_1"
@@ -790,6 +838,59 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2i(0, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_0a4in"]
+resource_name = "Parry_1"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_gnn05")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
 }
 
 [sub_resource type="Animation" id="Animation_ad1r3"]
@@ -1519,8 +1620,8 @@ tracks/3/keys = {
 "values": [8]
 }
 
-[sub_resource type="Animation" id="Animation_0a4in"]
-resource_name = "Parry_1"
+[sub_resource type="Animation" id="Animation_da7pm"]
+resource_name = "Parry_2"
 length = 0.5
 step = 0.1
 tracks/0/type = "value"
@@ -1542,10 +1643,328 @@ tracks/1/path = NodePath("Sprite2D:frame_coords")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 0), Vector2i(1, 0)]
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_oevaa"]
+resource_name = "Parry_3"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_gnn05")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_qlcyu"]
+resource_name = "Parry_6"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_gnn05")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_08dmp"]
+resource_name = "Parry_4"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_gnn05")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_qwqcp"]
+resource_name = "Parry_7"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_gnn05")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 6), Vector2i(1, 6), Vector2i(2, 6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_op3pt"]
+resource_name = "Parry_8"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_gnn05")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_ab3cm"]
+resource_name = "Parry_9"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_gnn05")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -1591,6 +2010,13 @@ _data = {
 &"Idle_8": SubResource("Animation_cmxsl"),
 &"Idle_9": SubResource("Animation_ctw5t"),
 &"Parry_1": SubResource("Animation_0a4in"),
+&"Parry_2": SubResource("Animation_da7pm"),
+&"Parry_3": SubResource("Animation_oevaa"),
+&"Parry_4": SubResource("Animation_08dmp"),
+&"Parry_6": SubResource("Animation_qlcyu"),
+&"Parry_7": SubResource("Animation_qwqcp"),
+&"Parry_8": SubResource("Animation_op3pt"),
+&"Parry_9": SubResource("Animation_ab3cm"),
 &"RESET": SubResource("Animation_ad1r3"),
 &"Run_1": SubResource("Animation_gvogj"),
 &"Run_2": SubResource("Animation_dn5ee"),
@@ -1633,10 +2059,12 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/Attack = false
 parameters/conditions/Block = false
 parameters/conditions/Idle = false
+parameters/conditions/Parry = false
 parameters/conditions/Run = false
 parameters/Attack/blend_position = Vector2(0.00118768, 0.990385)
 parameters/Block/blend_position = Vector2(0.00118768, 0.96934)
 parameters/Idle/blend_position = Vector2(-0.00118762, 0.991803)
+parameters/Parry/blend_position = Vector2(0.00118768, 0.997942)
 parameters/Run/blend_position = Vector2(0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
