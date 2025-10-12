@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://yiy48pse44h1"]
+[gd_scene load_steps=112 format=3 uid="uid://yiy48pse44h1"]
 
 [ext_resource type="Script" uid="uid://bhnj2jychtab6" path="res://Scripts/Character/musashi.gd" id="1_kwxo6"]
 [ext_resource type="Texture2D" uid="uid://t4x2lc4hl8eu" path="res://Assets/Musashi/isometric musashi.png" id="2_c0gjr"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://duiwgga5adtj1" path="res://Scripts/Character/AttackState.gd" id="8_20ay2"]
 [ext_resource type="Script" uid="uid://cgwrqojsj0pcn" path="res://Scripts/Character/BlockState.gd" id="9_20ay2"]
 [ext_resource type="Script" uid="uid://c8d6bysne8vpn" path="res://Scripts/Character/state_debug_label.gd" id="10_w65o3"]
-[ext_resource type="Script" uid="uid://k1lpaadygjs0" path="res://Scripts/Character/sword.gd" id="11_0t0so"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o2srt"]
 radius = 5.0
@@ -1321,18 +1320,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [8]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sword:monitoring")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_gvogj"]
 resource_name = "Run_1"
@@ -1530,18 +1517,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [8]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sword:monitoring")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="Animation" id="Animation_lwvwy"]
 resource_name = "Slash_2"
@@ -1594,18 +1569,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [8]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sword:monitoring")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_20ay2"]
@@ -1660,18 +1623,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [8]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sword:monitoring")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="Animation" id="Animation_w65o3"]
 resource_name = "Slash_4"
@@ -1724,18 +1675,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [8]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sword:monitoring")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_0t0so"]
@@ -1790,18 +1729,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [8]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sword:monitoring")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="Animation" id="Animation_25qqv"]
 resource_name = "Slash_7"
@@ -1854,18 +1781,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [8]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sword:monitoring")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_tdweo"]
@@ -1920,18 +1835,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [8]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sword:monitoring")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="Animation" id="Animation_64gcv"]
 resource_name = "Slash_9"
@@ -1985,18 +1888,6 @@ tracks/3/keys = {
 "update": 1,
 "values": [8]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sword:monitoring")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_plwqm"]
 _data = {
@@ -2043,9 +1934,6 @@ _data = {
 &"Slash_9": SubResource("Animation_64gcv")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_25qqv"]
-size = Vector2(45, 64)
-
 [node name="Musashi" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree")]
 z_index = 2
 motion_mode = 1
@@ -2088,24 +1976,20 @@ character = NodePath("..")
 animation_tree = NodePath("../AnimationTree")
 current_state = NodePath("Ground")
 
-[node name="Ground" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("attack_state")]
+[node name="Ground" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("7_lwvwy")
-attack_state = NodePath("../Attack")
+attack_animation = null
+can_move = null
 
 [node name="Block" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("9_20ay2")
 
-[node name="Attack" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("return_state")]
+[node name="Attack" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("8_20ay2")
-return_state = NodePath("../Ground")
+can_move = false
 metadata/_custom_type_script = "uid://brp4yj2dx257q"
 
-[node name="Timer" type="Timer" parent="CharacterStateMachine/Attack"]
-wait_time = 0.3
-one_shot = true
-
 [node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
-visible = false
 offset_left = -43.0
 offset_top = -51.0
 offset_right = 62.0
@@ -2117,15 +2001,3 @@ theme_override_font_sizes/font_size = 13
 text = "State: "
 script = ExtResource("10_w65o3")
 state_machine = NodePath("../CharacterStateMachine")
-
-[node name="Sword" type="Area2D" parent="."]
-monitoring = false
-script = ExtResource("11_0t0so")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword"]
-position = Vector2(-21, -8)
-shape = SubResource("RectangleShape2D_25qqv")
-debug_color = Color(0.0528, 0.66, 0.38676, 0.419608)
-
-[connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attack" method="_on_animation_tree_animation_finished"]
-[connection signal="body_entered" from="Sword" to="Sword" method="_on_body_entered"]

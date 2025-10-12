@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 @export var speed : float = 200
-@export var animation_tree : AnimationTree 
+@export var animation_tree : AnimationTree
 @onready var musashi = get_owner()
+@onready var state_machine : CharacterStateMachine = $CharacterStateMachine
 
 
 var input : Vector2 = Vector2.ZERO
@@ -11,10 +12,10 @@ var playback : AnimationNodeStateMachinePlayback
 func _ready():
 	animation_tree.active = true
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(delta):
 	input = Input.get_vector("left", "right", "up", "down").normalized()
 
-	if input:
+	if input && state_machine.check_if_can_move():
 		velocity = input * speed
 	else:
 		velocity = Vector2.ZERO
@@ -27,6 +28,7 @@ func update_animation_parameters():
 	animation_tree.set("parameters/conditions/Run", velocity != Vector2.ZERO)
 	animation_tree.set("parameters/conditions/Attack", Input.is_action_just_pressed("Attack"))
 	animation_tree.set("parameters/conditions/Block", Input.is_action_just_pressed("Block"))
+	#add parry conditions after blocking
 	
 	if input != Vector2.ZERO:
 		animation_tree["parameters/Idle/blend_position"] = input

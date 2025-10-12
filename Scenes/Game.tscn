@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmmqnw3kpxddu"]
+[gd_scene load_steps=4 format=3 uid="uid://bmmqnw3kpxddu"]
 
 [ext_resource type="PackedScene" uid="uid://yiy48pse44h1" path="res://Scenes/musashi.tscn" id="1_pyid8"]
 [ext_resource type="PackedScene" uid="uid://dsrvwhc4je8us" path="res://Scenes/tile_map.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://c6ftkro2dd2r3" path="res://Scenes/Enemy/swordsman.tscn" id="3_wrm1d"]
 
 [node name="Game" type="Node2D"]
 
@@ -14,3 +15,6 @@ remote_path = NodePath("../../Camera2D")
 zoom = Vector2(3, 3)
 
 [node name="TileMap" parent="." instance=ExtResource("2_qxrlw")]
+
+[node name="Swordsman" parent="." instance=ExtResource("3_wrm1d")]
+position = Vector2(3, 75)
