@@ -8,7 +8,6 @@ func _ready():
 func _on_body_entered(body):
 	for child in body.get_children():
 		if child is Damageable:
-			
 			var direction_to_damageable = (body.global_position - get_parent().global_position)
 			var direction_sign = sign(direction_to_damageable.x)
 			
@@ -19,3 +18,10 @@ func _on_body_entered(body):
 			else:
 				child.hit(damage, Vector2.ZERO)
 			
+			await get_tree().create_timer(0.18, false).timeout
+			await frame_freeze(0.1, 0.15)
+
+func frame_freeze(timescale: float, duration: float) -> void:
+	Engine.time_scale = timescale
+	await get_tree().create_timer(duration, true, false, true).timeout
+	Engine.time_scale = 1.0

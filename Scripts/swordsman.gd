@@ -11,9 +11,6 @@ func _ready():
 	animation_tree.active = true
 
 func _physics_process(delta):
-	
-
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction : Vector2 = starting_move_direction
