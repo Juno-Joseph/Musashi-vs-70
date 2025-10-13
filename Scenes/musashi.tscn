@@ -2048,6 +2048,7 @@ size = Vector2(45, 64)
 
 [node name="Musashi" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree")]
 z_index = 2
+collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_kwxo6")
 animation_tree = NodePath("AnimationTree")
@@ -2119,6 +2120,8 @@ script = ExtResource("10_w65o3")
 state_machine = NodePath("../CharacterStateMachine")
 
 [node name="Sword" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
 monitoring = false
 script = ExtResource("11_0t0so")
 

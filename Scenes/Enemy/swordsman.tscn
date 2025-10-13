@@ -1,54 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6ftkro2dd2r3"]
+[gd_scene load_steps=18 format=3 uid="uid://c6ftkro2dd2r3"]
 
-[ext_resource type="Texture2D" uid="uid://bm8vo68jai64d" path="res://Assets/Temp Enemy/IDLE.png" id="1_m4oe1"]
+[ext_resource type="Texture2D" uid="uid://d1nsnsckbq7kg" path="res://Assets/Enemy/Yoshioka1_temep.png" id="1_ajv6r"]
+[ext_resource type="Script" uid="uid://b8bo0u4col2j3" path="res://Scripts/swordsman.gd" id="1_g44a8"]
 [ext_resource type="Script" uid="uid://c8lex8d0fw0mj" path="res://Scripts/damageable.gd" id="2_ajv6r"]
+[ext_resource type="Texture2D" uid="uid://cbdfu075wmlqy" path="res://Assets/Temp Enemy/HURT.png" id="3_3hm13"]
+[ext_resource type="Script" uid="uid://dtckhvfx2urju" path="res://Scripts/Character/CharacterStateMachine.gd" id="3_7joig"]
+[ext_resource type="Script" uid="uid://brp4yj2dx257q" path="res://Scripts/Character/State.gd" id="4_g44a8"]
+[ext_resource type="Script" uid="uid://7gonmytrohj8" path="res://Scripts/HitState.gd" id="5_3hm13"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m4oe1"]
 radius = 11.0
 height = 40.0
 
-[sub_resource type="Animation" id="Animation_ajv6r"]
-resource_name = "Idle"
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_m4oe1")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-}
-
-[sub_resource type="Animation" id="Animation_wtxwc"]
+[sub_resource type="Animation" id="Animation_vh3et"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -60,7 +24,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_m4oe1")]
+"values": [ExtResource("1_ajv6r")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -72,7 +36,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [10]
+"values": [1]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -87,29 +51,143 @@ tracks/2/keys = {
 "values": [0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tnodw"]
-_data = {
-&"Idle": SubResource("Animation_ajv6r"),
-&"RESET": SubResource("Animation_wtxwc")
+[sub_resource type="Animation" id="Animation_fn00y"]
+resource_name = "Dead"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_3hm13")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-7.45058e-09, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
 }
 
-[node name="Swordsman" type="CharacterBody2D"]
+[sub_resource type="Animation" id="Animation_cwp5l"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_ajv6r")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tnodw"]
+_data = {
+&"Dead": SubResource("Animation_fn00y"),
+&"Idle": SubResource("Animation_cwp5l"),
+&"RESET": SubResource("Animation_vh3et")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3hm13"]
+animation = &"Dead"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yylr5"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fn00y"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vh3et"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_cwp5l"]
+states/Dead/node = SubResource("AnimationNodeAnimation_3hm13")
+states/Dead/position = Vector2(559.2, 99.632)
+states/Idle/node = SubResource("AnimationNodeAnimation_yylr5")
+states/Idle/position = Vector2(353.6, 100.522)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_fn00y"), "Idle", "Dead", SubResource("AnimationNodeStateMachineTransition_vh3et")]
+
+[node name="Swordsman" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
 z_index = 2
+collision_layer = 4
+script = ExtResource("1_g44a8")
+hit_state = NodePath("CharacterStateMachine/Hit")
+speed = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.25, 1.25)
-texture = ExtResource("1_m4oe1")
-hframes = 10
+texture = ExtResource("1_ajv6r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 21)
+position = Vector2(7, -12)
 shape = SubResource("CapsuleShape2D_m4oe1")
-
-[node name="Damageable" type="Node" parent="."]
-script = ExtResource("2_ajv6r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")
 libraries = {
 &"": SubResource("AnimationLibrary_tnodw")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Sprite2D")
+tree_root = SubResource("AnimationNodeStateMachine_cwp5l")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Damageable" type="Node" parent="."]
+script = ExtResource("2_ajv6r")
+
+[node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "animation_tree", "current_state")]
+script = ExtResource("3_7joig")
+character = NodePath("..")
+animation_tree = NodePath("../AnimationTree")
+current_state = NodePath("Idle")
+metadata/_custom_type_script = "uid://dtckhvfx2urju"
+
+[node name="Idle" type="Node" parent="CharacterStateMachine"]
+script = ExtResource("4_g44a8")
+metadata/_custom_type_script = "uid://brp4yj2dx257q"
+
+[node name="Dead" type="Node" parent="CharacterStateMachine"]
+script = ExtResource("4_g44a8")
+can_move = false
+metadata/_custom_type_script = "uid://brp4yj2dx257q"
+
+[node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable", "dead_state", "return_state")]
+script = ExtResource("5_3hm13")
+damageable = NodePath("../../Damageable")
+dead_state = NodePath(".")
+return_state = NodePath("../Idle")
+can_move = false
+metadata/_custom_type_script = "uid://brp4yj2dx257q"
+
+[node name="Timer" type="Timer" parent="CharacterStateMachine/Hit"]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
+[connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
