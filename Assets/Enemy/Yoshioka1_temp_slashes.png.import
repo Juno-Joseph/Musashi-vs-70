@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rmm3rx2nhrps"
-path="res://.godot/imported/ATTACK 1.png-93d9f6d4a46b380c2c5ff24c1edb8472.ctex"
+uid="uid://vbgk7lobpsna"
+path="res://.godot/imported/Yoshioka1_temp_slashes.png-94125ebd58dfcdc7b9098083f972adc3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temp Enemy/ATTACK 1.png"
-dest_files=["res://.godot/imported/ATTACK 1.png-93d9f6d4a46b380c2c5ff24c1edb8472.ctex"]
+source_file="res://Assets/Enemy/Yoshioka1_temp_slashes.png"
+dest_files=["res://.godot/imported/Yoshioka1_temp_slashes.png-94125ebd58dfcdc7b9098083f972adc3.ctex"]
 
 [params]
 

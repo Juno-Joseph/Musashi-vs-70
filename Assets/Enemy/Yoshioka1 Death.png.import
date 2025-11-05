@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbdfu075wmlqy"
-path="res://.godot/imported/HURT.png-bd8b12e770598a7f2f1e3dc41d4f93d0.ctex"
+uid="uid://dcps23ahtljd0"
+path="res://.godot/imported/Yoshioka1 Death.png-080385b382689119882753882f6aeaad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temp Enemy/HURT.png"
-dest_files=["res://.godot/imported/HURT.png-bd8b12e770598a7f2f1e3dc41d4f93d0.ctex"]
+source_file="res://Assets/Enemy/Yoshioka1 Death.png"
+dest_files=["res://.godot/imported/Yoshioka1 Death.png-080385b382689119882753882f6aeaad.ctex"]
 
 [params]
 

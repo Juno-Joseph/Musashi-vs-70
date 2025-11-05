@@ -4,17 +4,17 @@ class_name BlockState
 
 @export var move_state : State
 
-@onready var parry_area = character.get_node("../Parry")
+#@onready var parry_area = character.get_node("../Parry")
 
 func on_enter():
 	playback.travel("Block")
-	parry_area.area_entered.connect(_on_parry_area_hit)
-	parry_area.monitoring = true
+	#parry_area.area_entered.connect(_on_parry_area_hit)
+	#parry_area.monitoring = true
 	can_move = false
 
 func on_exit():
-	parry_area.area_entered.disconnect(_on_parry_area_hit)
-	parry_area.monitoring = false
+	#parry_area.area_entered.disconnect(_on_parry_area_hit)
+	#parry_area.monitoring = false
 	character.can_move = true
 
 func _on_parry_area_hit(area):

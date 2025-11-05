@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://d1nsnsckbq7kg" path="res://Assets/Enemy/Yoshioka1_temep.png" id="1_ajv6r"]
 [ext_resource type="Script" uid="uid://b8bo0u4col2j3" path="res://Scripts/swordsman.gd" id="1_g44a8"]
 [ext_resource type="Script" uid="uid://c8lex8d0fw0mj" path="res://Scripts/damageable.gd" id="2_ajv6r"]
-[ext_resource type="Texture2D" uid="uid://cbdfu075wmlqy" path="res://Assets/Temp Enemy/HURT.png" id="3_3hm13"]
 [ext_resource type="Script" uid="uid://dtckhvfx2urju" path="res://Scripts/Character/CharacterStateMachine.gd" id="3_7joig"]
 [ext_resource type="Script" uid="uid://brp4yj2dx257q" path="res://Scripts/Character/State.gd" id="4_g44a8"]
 [ext_resource type="Script" uid="uid://7gonmytrohj8" path="res://Scripts/HitState.gd" id="5_3hm13"]
@@ -12,44 +11,8 @@
 radius = 11.0
 height = 40.0
 
-[sub_resource type="Animation" id="Animation_vh3et"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_ajv6r")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
+[sub_resource type="Resource" id="Resource_g44a8"]
+metadata/__load_path__ = "res://Assets/Temp Enemy/HURT.png"
 
 [sub_resource type="Animation" id="Animation_fn00y"]
 resource_name = "Dead"
@@ -65,7 +28,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_3hm13")]
+"values": [SubResource("Resource_g44a8")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -105,6 +68,45 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("1_ajv6r")]
+}
+
+[sub_resource type="Animation" id="Animation_vh3et"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_ajv6r")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tnodw"]

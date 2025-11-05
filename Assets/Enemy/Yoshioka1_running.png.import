@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm8vo68jai64d"
-path="res://.godot/imported/IDLE.png-715c6e8d563a9bceae0f99600dd9c2ea.ctex"
+uid="uid://cr22j546aa4uv"
+path="res://.godot/imported/Yoshioka1_running.png-887eea3eb6102bb888eb055932a0cdb6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Temp Enemy/IDLE.png"
-dest_files=["res://.godot/imported/IDLE.png-715c6e8d563a9bceae0f99600dd9c2ea.ctex"]
+source_file="res://Assets/Enemy/Yoshioka1_running.png"
+dest_files=["res://.godot/imported/Yoshioka1_running.png-887eea3eb6102bb888eb055932a0cdb6.ctex"]
 
 [params]
 
