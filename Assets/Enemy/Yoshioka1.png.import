@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ta8gvlytn21g"
-path="res://.godot/imported/Yoshioka1_Hit.png-5f0280b1ffb4c3d5733ef45e6e5ac481.ctex"
+uid="uid://c0xl4cuv0chkl"
+path="res://.godot/imported/Yoshioka1.png-99242474a29611ec0d87424c09187844.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemy/Yoshioka1_Hit.png"
-dest_files=["res://.godot/imported/Yoshioka1_Hit.png-5f0280b1ffb4c3d5733ef45e6e5ac481.ctex"]
+source_file="res://Assets/Enemy/Yoshioka1.png"
+dest_files=["res://.godot/imported/Yoshioka1.png-99242474a29611ec0d87424c09187844.ctex"]
 
 [params]
 
