@@ -22,6 +22,7 @@ func on_exit():
 	
 func on_damagable_hit(node : Node, damage_amount : int, knockback_direction : Vector2):
 		if (damageable.health > 0):
+			animation_tree.set("parameters/Hit/blend_position", knockback_direction)
 			playback.travel("Hit")
 			character.velocity = knockback_speed * knockback_direction
 			emit_signal("interrupt_state", self)
@@ -31,4 +32,4 @@ func on_damagable_hit(node : Node, damage_amount : int, knockback_direction : Ve
 
 
 func _on_timer_timeout():
-	next_state = return_state
+	emit_signal("interrupt_state", return_state)

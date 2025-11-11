@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://c6ftkro2dd2r3"]
+[gd_scene load_steps=105 format=3 uid="uid://c6ftkro2dd2r3"]
 
 [ext_resource type="Texture2D" uid="uid://d1nsnsckbq7kg" path="res://Assets/Enemy/Yoshioka1_temep.png" id="1_ajv6r"]
 [ext_resource type="Script" uid="uid://b8bo0u4col2j3" path="res://Scripts/swordsman.gd" id="1_g44a8"]
@@ -2224,6 +2224,48 @@ _data = {
 &"Slash_9": SubResource("Animation_fgluo")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lomhn"]
+animation = &"Slash_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oesto"]
+animation = &"Slash_3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o6jbo"]
+animation = &"Slash_6"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dbymq"]
+animation = &"Slash_9"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ct5ms"]
+animation = &"Slash_8"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s8l6k"]
+animation = &"Slash_7"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mnu08"]
+animation = &"Slash_4"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vitab"]
+animation = &"Slash_1"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_c8ndq"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_lomhn")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_oesto")
+blend_point_1/pos = Vector2(0.6, 0.6)
+blend_point_2/node = SubResource("AnimationNodeAnimation_o6jbo")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_dbymq")
+blend_point_3/pos = Vector2(0.6, -0.6)
+blend_point_4/node = SubResource("AnimationNodeAnimation_ct5ms")
+blend_point_4/pos = Vector2(0, -1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_s8l6k")
+blend_point_5/pos = Vector2(-0.6, -0.6)
+blend_point_6/node = SubResource("AnimationNodeAnimation_mnu08")
+blend_point_6/pos = Vector2(-1, 0)
+blend_point_7/node = SubResource("AnimationNodeAnimation_vitab")
+blend_point_7/pos = Vector2(-0.6, 0.6)
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cwp5l"]
 animation = &"Dead_2"
 
@@ -2266,9 +2308,6 @@ blend_point_6/pos = Vector2(-1, 0)
 blend_point_7/node = SubResource("AnimationNodeAnimation_kv775")
 blend_point_7/pos = Vector2(-0.6, 0.6)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3hm13"]
-animation = &"Dead"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k1880"]
 animation = &"Hit_2"
 
@@ -2295,21 +2334,21 @@ animation = &"Hit_1"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_lyjxb"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_k1880")
-blend_point_0/pos = Vector2(0, 1)
+blend_point_0/pos = Vector2(0, -1)
 blend_point_1/node = SubResource("AnimationNodeAnimation_wcbsq")
-blend_point_1/pos = Vector2(0.6, 0.6)
+blend_point_1/pos = Vector2(-0.6, -0.6)
 blend_point_2/node = SubResource("AnimationNodeAnimation_c8ndq")
-blend_point_2/pos = Vector2(1, 0)
+blend_point_2/pos = Vector2(-1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_qdmcr")
-blend_point_3/pos = Vector2(0.6, -0.6)
+blend_point_3/pos = Vector2(-0.6, 0.6)
 blend_point_4/node = SubResource("AnimationNodeAnimation_m3u83")
-blend_point_4/pos = Vector2(0, -1)
+blend_point_4/pos = Vector2(0, 1)
 blend_point_5/node = SubResource("AnimationNodeAnimation_r1fw4")
-blend_point_5/pos = Vector2(-0.6, -0.6)
+blend_point_5/pos = Vector2(0.6, 0.6)
 blend_point_6/node = SubResource("AnimationNodeAnimation_daudv")
-blend_point_6/pos = Vector2(-1, 0)
+blend_point_6/pos = Vector2(1, 0)
 blend_point_7/node = SubResource("AnimationNodeAnimation_kbipk")
-blend_point_7/pos = Vector2(-0.6, 0.6)
+blend_point_7/pos = Vector2(0.6, -0.6)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yylr5"]
 animation = &"Idle"
@@ -2356,67 +2395,69 @@ blend_point_6/pos = Vector2(-1, 0)
 blend_point_7/node = SubResource("AnimationNodeAnimation_ty20s")
 blend_point_7/pos = Vector2(-0.6, 0.6)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lomhn"]
-animation = &"Slash_2"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oesto"]
-animation = &"Slash_3"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o6jbo"]
-animation = &"Slash_6"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dbymq"]
-animation = &"Slash_9"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ct5ms"]
-animation = &"Slash_8"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s8l6k"]
-animation = &"Slash_7"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mnu08"]
-animation = &"Slash_4"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vitab"]
-animation = &"Slash_1"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_c8ndq"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_lomhn")
-blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_oesto")
-blend_point_1/pos = Vector2(0.6, 0.6)
-blend_point_2/node = SubResource("AnimationNodeAnimation_o6jbo")
-blend_point_2/pos = Vector2(1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_dbymq")
-blend_point_3/pos = Vector2(0.6, -0.6)
-blend_point_4/node = SubResource("AnimationNodeAnimation_ct5ms")
-blend_point_4/pos = Vector2(0, -1)
-blend_point_5/node = SubResource("AnimationNodeAnimation_s8l6k")
-blend_point_5/pos = Vector2(-0.6, -0.6)
-blend_point_6/node = SubResource("AnimationNodeAnimation_mnu08")
-blend_point_6/pos = Vector2(-1, 0)
-blend_point_7/node = SubResource("AnimationNodeAnimation_vitab")
-blend_point_7/pos = Vector2(-0.6, 0.6)
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fn00y"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vh3et"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cwp5l"]
+advance_mode = 2
+advance_condition = &"Hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qx0at"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ulaa5"]
+advance_mode = 2
+advance_condition = &"Dead"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_phes1"]
+advance_mode = 2
+advance_condition = &"Running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fdi50"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_42st2"]
+advance_mode = 2
+advance_condition = &"Attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ak4oc"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kv775"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"Attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k1880"]
+advance_mode = 2
+advance_condition = &"Running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hfox8"]
+advance_mode = 2
+advance_condition = &"Hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kspv2"]
+advance_mode = 2
+advance_condition = &"Hit"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_cwp5l"]
-states/Dead/node = SubResource("AnimationNodeAnimation_3hm13")
-states/Dead/position = Vector2(723.2, 59.632)
-"states/Dead 2/node" = SubResource("AnimationNodeBlendSpace2D_k1880")
-"states/Dead 2/position" = Vector2(703.954, 193.046)
+states/Attack/node = SubResource("AnimationNodeBlendSpace2D_c8ndq")
+states/Attack/position = Vector2(529.753, 202.636)
+states/Dead/node = SubResource("AnimationNodeBlendSpace2D_k1880")
+states/Dead/position = Vector2(695.255, 11.3107)
 states/Hit/node = SubResource("AnimationNodeBlendSpace2D_lyjxb")
-states/Hit/position = Vector2(690.354, 121.877)
+states/Hit/position = Vector2(530.354, 11.4768)
 states/Idle/node = SubResource("AnimationNodeAnimation_yylr5")
 states/Idle/position = Vector2(353.6, 100.522)
 states/Running/node = SubResource("AnimationNodeBlendSpace2D_wcbsq")
-states/Running/position = Vector2(345.632, 192.301)
-states/Slash/node = SubResource("AnimationNodeBlendSpace2D_c8ndq")
-states/Slash/position = Vector2(542.551, 191.436)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_fn00y"), "Idle", "Dead", SubResource("AnimationNodeStateMachineTransition_vh3et")]
+states/Running/position = Vector2(673.632, 98.3554)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_fn00y"), "Idle", "Hit", SubResource("AnimationNodeStateMachineTransition_cwp5l"), "Hit", "Idle", SubResource("AnimationNodeStateMachineTransition_qx0at"), "Hit", "Dead", SubResource("AnimationNodeStateMachineTransition_ulaa5"), "Idle", "Running", SubResource("AnimationNodeStateMachineTransition_phes1"), "Running", "Idle", SubResource("AnimationNodeStateMachineTransition_fdi50"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_42st2"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_ak4oc"), "Running", "Attack", SubResource("AnimationNodeStateMachineTransition_kv775"), "Attack", "Running", SubResource("AnimationNodeStateMachineTransition_k1880"), "Attack", "Hit", SubResource("AnimationNodeStateMachineTransition_hfox8"), "Running", "Hit", SubResource("AnimationNodeStateMachineTransition_kspv2")]
 graph_offset = Vector2(-107.046, -59.7232)
 
 [node name="Swordsman" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
@@ -2424,7 +2465,7 @@ z_index = 2
 collision_layer = 4
 script = ExtResource("1_g44a8")
 hit_state = NodePath("CharacterStateMachine/Hit")
-speed = 100.0
+speed = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.25, 1.25)
@@ -2444,19 +2485,26 @@ libraries = {
 root_node = NodePath("../Sprite2D")
 tree_root = SubResource("AnimationNodeStateMachine_cwp5l")
 anim_player = NodePath("../AnimationPlayer")
-"parameters/Dead 2/blend_position" = Vector2(0, 1.00364)
+parameters/conditions/Attack = false
+parameters/conditions/Dead = false
+parameters/conditions/Hit = false
+parameters/conditions/Idle = false
+parameters/conditions/Running = false
+parameters/Attack/blend_position = Vector2(-0.00122547, 1.00364)
+parameters/Dead/blend_position = Vector2(0, 0)
 parameters/Hit/blend_position = Vector2(-0.000612378, 1.00364)
 parameters/Running/blend_position = Vector2(0, 0.996364)
-parameters/Slash/blend_position = Vector2(-0.00122547, 1.00364)
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("2_ajv6r")
+health = 10000.0
 
-[node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "animation_tree", "current_state")]
+[node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "animation_tree", "current_state", "hit_state")]
 script = ExtResource("3_7joig")
 character = NodePath("..")
 animation_tree = NodePath("../AnimationTree")
 current_state = NodePath("Idle")
+hit_state = NodePath("Hit")
 metadata/_custom_type_script = "uid://dtckhvfx2urju"
 
 [node name="Idle" type="Node" parent="CharacterStateMachine"]
@@ -2468,11 +2516,12 @@ script = ExtResource("4_g44a8")
 can_move = false
 metadata/_custom_type_script = "uid://brp4yj2dx257q"
 
-[node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable", "dead_state", "return_state")]
+[node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable", "dead_state", "return_state", "animation_tree")]
 script = ExtResource("5_3hm13")
 damageable = NodePath("../../Damageable")
 dead_state = NodePath(".")
 return_state = NodePath("../Idle")
+animation_tree = NodePath("../../AnimationTree")
 can_move = false
 metadata/_custom_type_script = "uid://brp4yj2dx257q"
 
