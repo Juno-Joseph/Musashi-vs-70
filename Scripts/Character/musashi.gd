@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
-@export var speed : float = 200
-@export var animation_tree : AnimationTree
 @onready var musashi = get_owner()
 @onready var state_machine : CharacterStateMachine = $CharacterStateMachine
+
+@export var speed : float = 200
+@export var animation_tree : AnimationTree
 
 
 var input : Vector2 = Vector2.ZERO

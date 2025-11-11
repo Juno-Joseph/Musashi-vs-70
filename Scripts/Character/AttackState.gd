@@ -1,5 +1,7 @@
 extends State
 
+class_name AttackState
+
 @export var return_state : State
 @export var return_animation_node : String = "Run"
 @export var attack_name : String = "attack"
