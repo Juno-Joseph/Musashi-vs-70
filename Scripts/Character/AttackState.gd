@@ -14,7 +14,7 @@ func state_input(event : InputEvent):
 		timer.start()
 
 func _on_animation_tree_animation_finished(anim_name):
-	if(anim_name == attack_name):
+	if(anim_name.begins_with("Slash_")):
 		if (timer.is_stopped()):
 			next_state = return_state
 			playback.travel(return_animation_node)
