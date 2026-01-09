@@ -2497,7 +2497,7 @@ parameters/Running/blend_position = Vector2(0, 0.996364)
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("2_ajv6r")
-health = 10000.0
+health = 50.0
 
 [node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "animation_tree", "current_state", "hit_state")]
 script = ExtResource("3_7joig")
