@@ -18,6 +18,6 @@ zoom = Vector2(3, 3)
 [node name="TileMap" parent="." instance=ExtResource("2_qxrlw")]
 
 [node name="Swordsman" parent="." instance=ExtResource("3_wrm1d")]
-position = Vector2(3, 75)
+position = Vector2(-220, 121)
 
 [node name="HealthChangedManager" parent="." instance=ExtResource("4_3dryh")]
