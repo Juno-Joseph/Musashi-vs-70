@@ -1,20 +1,25 @@
-[gd_scene load_steps=107 format=3 uid="uid://c6ftkro2dd2r3"]
+[gd_scene load_steps=110 format=3 uid="uid://c6ftkro2dd2r3"]
 
 [ext_resource type="Texture2D" uid="uid://d1nsnsckbq7kg" path="res://Assets/Enemy/Yoshioka1_temep.png" id="1_ajv6r"]
-[ext_resource type="Script" uid="uid://b8bo0u4col2j3" path="res://Scripts/swordsman.gd" id="1_g44a8"]
-[ext_resource type="Script" uid="uid://c8lex8d0fw0mj" path="res://Scripts/damageable.gd" id="2_ajv6r"]
+[ext_resource type="Script" uid="uid://b8bo0u4col2j3" path="res://Scripts/Enemy/swordsman.gd" id="1_g44a8"]
+[ext_resource type="Script" uid="uid://c8lex8d0fw0mj" path="res://Scripts/Enemy/damageable.gd" id="2_ajv6r"]
 [ext_resource type="Texture2D" uid="uid://dcps23ahtljd0" path="res://Assets/Enemy/Yoshioka1 Death.png" id="3_3hm13"]
 [ext_resource type="Texture2D" uid="uid://c0xl4cuv0chkl" path="res://Assets/Enemy/Yoshioka1.png" id="3_cwp5l"]
 [ext_resource type="Script" uid="uid://brp4yj2dx257q" path="res://Scripts/Character/State.gd" id="4_g44a8"]
-[ext_resource type="Script" uid="uid://7gonmytrohj8" path="res://Scripts/HitState.gd" id="5_3hm13"]
+[ext_resource type="Script" uid="uid://7gonmytrohj8" path="res://Scripts/Enemy/HitState.gd" id="5_3hm13"]
 [ext_resource type="Texture2D" uid="uid://cr22j546aa4uv" path="res://Assets/Enemy/Yoshioka1_running.png" id="5_qx0at"]
 [ext_resource type="Texture2D" uid="uid://ta8gvlytn21g" path="res://Assets/Enemy/Yoshioka1_Hit.png" id="6_ulaa5"]
 [ext_resource type="Texture2D" uid="uid://vbgk7lobpsna" path="res://Assets/Enemy/Yoshioka1_temp_slashes.png" id="7_phes1"]
-[ext_resource type="Script" uid="uid://ykckn1xp1wlv" path="res://Scenes/Enemy/character_state_machine.gd" id="9_qx0at"]
+[ext_resource type="Script" uid="uid://ykckn1xp1wlv" path="res://Scripts/Enemy/character_state_machine.gd" id="9_qx0at"]
 [ext_resource type="Script" uid="uid://d3ujvnsnskaad" path="res://Scripts/Enemy/ChaseState.gd" id="10_qx0at"]
+[ext_resource type="Script" uid="uid://dltda2cafvrv2" path="res://Scripts/Enemy/AttackState.gd" id="13_ulaa5"]
+[ext_resource type="Script" uid="uid://8s6rki0q641r" path="res://Scripts/Enemy/EnemyStateDebug.gd" id="14_phes1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cwp5l"]
-radius = 76.8
+radius = 130.402
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qx0at"]
+radius = 5.71798
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m4oe1"]
 radius = 11.0
@@ -2434,9 +2439,6 @@ advance_mode = 2
 advance_condition = &"Idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kv775"]
-switch_mode = 2
-advance_mode = 2
-advance_condition = &"Attack"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k1880"]
 advance_mode = 2
@@ -2468,6 +2470,7 @@ graph_offset = Vector2(-107.046, -59.7232)
 z_index = 2
 collision_layer = 4
 script = ExtResource("1_g44a8")
+speed = 125.0
 
 [node name="DetectionArea" type="Area2D" parent="."]
 scale = Vector2(1.25, 1.25)
@@ -2477,6 +2480,17 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(4.8, -8)
 shape = SubResource("CircleShape2D_cwp5l")
+debug_color = Color(0.78485, 0.795036, 0.170958, 0.419608)
+
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(7, -12)
+scale = Vector2(8.06419, 7.5696)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_qx0at")
+debug_color = Color(0.98951, 0, 0.289598, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.25, 1.25)
@@ -2510,9 +2524,11 @@ parameters/Running/blend_position = Vector2(-0.00451905, 1.00175)
 script = ExtResource("2_ajv6r")
 health = 50.0
 
-[node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("chase_state", "character", "animation_tree", "current_state", "damageable_component", "hit_state", "dead_state")]
+[node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("chase_state", "attack_state", "idle_state", "character", "animation_tree", "current_state", "damageable_component", "hit_state", "dead_state")]
 script = ExtResource("9_qx0at")
 chase_state = NodePath("Chase")
+attack_state = NodePath("Attack")
+idle_state = NodePath("Idle")
 character = NodePath("..")
 animation_tree = NodePath("../AnimationTree")
 current_state = NodePath("Idle")
@@ -2548,7 +2564,19 @@ metadata/_custom_type_script = "uid://brp4yj2dx257q"
 wait_time = 0.25
 one_shot = true
 
+[node name="Attack" type="Node" parent="CharacterStateMachine"]
+script = ExtResource("13_ulaa5")
+metadata/_custom_type_script = "uid://brp4yj2dx257q"
+
+[node name="EnemyStateDebug" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "State: "
+script = ExtResource("14_phes1")
+state_machine = NodePath("../CharacterStateMachine")
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]

@@ -1,5 +1,4 @@
 extends State
-
 class_name HitState
 
 @export var damageable : Damageable
@@ -10,6 +9,8 @@ class_name HitState
 @export var animation_tree : AnimationTree
 
 @onready var timer = $Timer
+
+var knockback_direction : Vector2
 
 func _ready():
 	damageable.connect("on_hit", on_damagable_hit)
