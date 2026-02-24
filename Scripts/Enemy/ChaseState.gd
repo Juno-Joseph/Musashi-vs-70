@@ -20,7 +20,7 @@ func _physics_process(delta):
 		var direction = (character.player.global_position - character.global_position).normalized()
 		
 		character.velocity = direction * character.speed
-		playback.set("parameters/Idle/blend_position", direction)
-		playback.set("parameters/Running/blend_position", direction)
+		character.animation_tree.set("parameters/Idle/blend_position", direction)
+		character.animation_tree.set("parameters/Running/blend_position", direction)
 	else:
 		next_state = idle_state

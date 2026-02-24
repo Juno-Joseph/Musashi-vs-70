@@ -16,6 +16,8 @@ func _physics_process(delta):
 	if player_chase and player:
 		var direction = (player.global_position - global_position).normalized()
 		
+		#print_debug("Movement Direction: ", direction)
+		
 		animation_tree.set("parameters/Idle/blend_position", direction)
 		animation_tree.set("parameters/Running/blend_position", direction)
 		
@@ -40,3 +42,7 @@ func _on_attack_area_body_entered(body):
 	if body.name == "Musashi":
 		if state_machine.attack_state != null:
 			state_machine.on_state_interrupt_state(state_machine.attack_state)
+
+
+func _on_sword_body_entered(body):
+	pass # Replace with function body.
