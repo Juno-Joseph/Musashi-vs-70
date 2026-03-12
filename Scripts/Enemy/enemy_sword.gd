@@ -7,6 +7,10 @@ func _ready():
 
 
 func _on_body_entered(body):
+	if body == get_parent():
+		print("you hit yourself")
+		return
+	
 	for child in body.get_children():
 		if child is Damageable:
 			var knockback_vector : Vector2 = (body.global_position - get_parent().global_position).normalized()

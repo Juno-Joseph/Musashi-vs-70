@@ -8,7 +8,7 @@ class_name HitState
 @export var return_state : State
 @export var animation_tree : AnimationTree
 
-@onready var timer = $Timer
+var timer : Timer
 
 var knockback_direction : Vector2
 
@@ -16,7 +16,14 @@ func _ready():
 	damageable.connect("on_hit", on_damagable_hit)
 
 func on_enter():
-	timer.start()
+	if timer == null:
+		timer = find_child("Timer") 
+
+	if timer != null:
+		timer.start()
+	else:
+		print("CRITICAL ERROR: Timer node not found on ", name)
+
 
 func on_exit():
 	character.velocity = Vector2.ZERO
