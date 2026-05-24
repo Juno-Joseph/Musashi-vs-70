@@ -3292,6 +3292,7 @@ libraries = {
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("8_euevw")
 health = 150.0
+dead_animation_name = null
 metadata/_custom_type_script = "uid://c8lex8d0fw0mj"
 
 [node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "animation_tree", "current_state", "damageable_component", "hit_state", "dead_state")]

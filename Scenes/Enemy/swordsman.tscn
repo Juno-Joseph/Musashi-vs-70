@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://8s6rki0q641r" path="res://Scripts/Enemy/EnemyStateDebug.gd" id="14_phes1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cwp5l"]
-radius = 130.402
+radius = 67.2048
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qx0at"]
 radius = 5.71798
@@ -2690,7 +2690,7 @@ graph_offset = Vector2(-140.046, -242.723)
 z_index = 2
 collision_layer = 4
 script = ExtResource("1_g44a8")
-speed = 125.0
+speed = 100.0
 
 [node name="DetectionArea" type="Area2D" parent="."]
 scale = Vector2(1.25, 1.25)
@@ -2783,11 +2783,11 @@ metadata/_custom_type_script = "uid://brp4yj2dx257q"
 
 [node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable", "dead_state", "return_state", "animation_tree")]
 script = ExtResource("5_3hm13")
+can_move = false
 damageable = NodePath("../../Damageable")
 dead_state = NodePath(".")
 return_state = NodePath("../Idle")
 animation_tree = NodePath("../../AnimationTree")
-can_move = false
 metadata/_custom_type_script = "uid://brp4yj2dx257q"
 
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Hit"]
