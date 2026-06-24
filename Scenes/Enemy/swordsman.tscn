@@ -2783,11 +2783,11 @@ metadata/_custom_type_script = "uid://brp4yj2dx257q"
 
 [node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable", "dead_state", "return_state", "animation_tree")]
 script = ExtResource("5_3hm13")
-can_move = false
 damageable = NodePath("../../Damageable")
 dead_state = NodePath(".")
 return_state = NodePath("../Idle")
 animation_tree = NodePath("../../AnimationTree")
+can_move = false
 metadata/_custom_type_script = "uid://brp4yj2dx257q"
 
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Hit"]

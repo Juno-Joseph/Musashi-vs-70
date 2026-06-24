@@ -174,21 +174,21 @@ animation = &"Hit_4"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_ab3cm"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_dh3yb")
-blend_point_0/pos = Vector2(-0.6, 0.6)
+blend_point_0/pos = Vector2(0.6, -0.6)
 blend_point_1/node = SubResource("AnimationNodeAnimation_3polq")
-blend_point_1/pos = Vector2(0, 1)
+blend_point_1/pos = Vector2(0, -1)
 blend_point_2/node = SubResource("AnimationNodeAnimation_da7pm")
-blend_point_2/pos = Vector2(0.6, 0.6)
+blend_point_2/pos = Vector2(-0.6, -0.6)
 blend_point_3/node = SubResource("AnimationNodeAnimation_oevaa")
-blend_point_3/pos = Vector2(1, 0)
+blend_point_3/pos = Vector2(-1, 0)
 blend_point_4/node = SubResource("AnimationNodeAnimation_qlcyu")
-blend_point_4/pos = Vector2(0.6, -0.6)
+blend_point_4/pos = Vector2(-0.6, 0.6)
 blend_point_5/node = SubResource("AnimationNodeAnimation_08dmp")
-blend_point_5/pos = Vector2(0, -1)
+blend_point_5/pos = Vector2(0, 1)
 blend_point_6/node = SubResource("AnimationNodeAnimation_qwqcp")
-blend_point_6/pos = Vector2(-0.6, -0.6)
+blend_point_6/pos = Vector2(0.6, 0.6)
 blend_point_7/node = SubResource("AnimationNodeAnimation_op3pt")
-blend_point_7/pos = Vector2(-1, 0)
+blend_point_7/pos = Vector2(1, 0)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mykh3"]
 animation = &"Idle_2"
@@ -3279,7 +3279,7 @@ parameters/conditions/Run = false
 parameters/Attack/blend_position = Vector2(0.00118768, 0.990385)
 parameters/Block/blend_position = Vector2(0.00118768, 0.96934)
 parameters/Death/blend_position = Vector2(-0.00180614, 1.00437)
-parameters/Hit/blend_position = Vector2(-0.000612378, 1.00364)
+parameters/Hit/blend_position = Vector2(0.0006845, 1.00387)
 parameters/Idle/blend_position = Vector2(-0.00118762, 0.991803)
 parameters/Parry/blend_position = Vector2(0.00118768, 0.997942)
 parameters/Run/blend_position = Vector2(0, 0)
@@ -3314,9 +3314,10 @@ script = ExtResource("7_lwvwy")
 attack_state = NodePath("../Attack")
 block_state = NodePath("../Block")
 
-[node name="Block" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("move_state")]
+[node name="Block" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("move_state", "attack_state")]
 script = ExtResource("9_20ay2")
 move_state = NodePath("../Ground")
+attack_state = NodePath("../Attack")
 can_move = false
 
 [node name="Attack" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("return_state")]
@@ -3328,10 +3329,18 @@ metadata/_custom_type_script = "uid://brp4yj2dx257q"
 wait_time = 0.3
 one_shot = true
 
-[node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable")]
+[node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("character_state_machine", "damageable", "dead_state", "return_state", "animation_tree")]
 script = ExtResource("14_bvmqv")
+character_state_machine = NodePath("..")
 damageable = NodePath("../../Damageable")
+dead_state = NodePath("../Dead")
+return_state = NodePath("../Ground")
+animation_tree = NodePath("../../AnimationTree")
 metadata/_custom_type_script = "uid://7gonmytrohj8"
+
+[node name="Timer" type="Timer" parent="CharacterStateMachine/Hit"]
+wait_time = 0.25
+one_shot = true
 
 [node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
 offset_left = -43.0
@@ -3368,4 +3377,5 @@ shape = SubResource("RectangleShape2D_0t0so")
 debug_color = Color(0.908118, 0.753773, 0, 0.42)
 
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attack" method="_on_animation_tree_animation_finished"]
+[connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Sword" to="Sword" method="_on_body_entered"]

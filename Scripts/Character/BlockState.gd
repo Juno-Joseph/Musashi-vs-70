@@ -1,11 +1,13 @@
 extends State
-
 class_name BlockState
 
 @export var move_state : State
+@export var attack_state : State
+@export var attack_node : String = "Attack"
 
 func on_enter():
 	playback.travel("Block")
+	character.velocity = Vector2.ZERO
 	can_move = false
 
 func on_exit():
