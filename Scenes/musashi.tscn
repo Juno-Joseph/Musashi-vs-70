@@ -3320,6 +3320,8 @@ move_state = NodePath("../Ground")
 attack_state = NodePath("../Attack")
 can_move = false
 
+[node name="Timer" type="Timer" parent="CharacterStateMachine/Block"]
+
 [node name="Attack" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("return_state")]
 script = ExtResource("8_20ay2")
 return_state = NodePath("../Ground")
@@ -3377,5 +3379,6 @@ shape = SubResource("RectangleShape2D_0t0so")
 debug_color = Color(0.908118, 0.753773, 0, 0.42)
 
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attack" method="_on_animation_tree_animation_finished"]
+[connection signal="timeout" from="CharacterStateMachine/Block/Timer" to="CharacterStateMachine/Block" method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Sword" to="Sword" method="_on_body_entered"]
