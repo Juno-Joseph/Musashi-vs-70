@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://uk1irnyj7xnh"]
+[gd_resource type="TileSet" format=3 uid="uid://uk1irnyj7xnh"]
 
 [ext_resource type="Texture2D" uid="uid://ciuislykej4xy" path="res://Assets/Musashi Level.png" id="2_xd1ju"]
 
