@@ -8,6 +8,7 @@ class_name CharacterStateMachine
 @export var damageable_component : Damageable # Reference to the Damageable node (Musashi/Damageable)
 @export var hit_state : State
 @export var dead_state : State
+@export var block_state : State
 
 var playback : AnimationNodeStateMachinePlayback
 

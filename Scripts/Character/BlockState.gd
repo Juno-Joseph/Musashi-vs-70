@@ -2,8 +2,15 @@ extends State
 class_name BlockState
 
 @export var move_state : State
+@export var parry_window: float = 0.2
+@export var parry_animation : String = "Parry"
+@export var block_animation : String = "Block"
 @export var attack_state : State
 @export var attack_node : String = "Attack"
+
+@onready var parry_timer : Timer = $Timer
+
+var is_parrying : bool = false
 
 var timer : Timer
 
@@ -11,17 +18,25 @@ func on_enter():
 	playback.travel("Block")
 	character.velocity = Vector2.ZERO
 	can_move = false
-	
-	if timer == null:
-		timer = find_child("Timer")
-	
-	if timer != null:
-		timer.start()
-	else:
-		print("ERROR: Timer node not found on", name)
+	is_parrying = false
+		
+	if parry_timer:
+		parry_timer.star(parry_window)
 
 func on_exit():
 	can_move = true
+	is_parrying = false
+	if parry_timer and not parry_timer.is_stopped():
+		parry_timer.stop()
+
+func state_inpur(event: InputEvent):
+	if event.is_action_released("Block") and not is_parrying:
+		emit_signal("interrupt_state", move_state)
+
+func can_parry() -> bool:
+	return parry_timer != null and not parry_timer.is_stopped()
+
+
 
 func _on_parry_area_hit(area):
 	if area.is_in_group("EnemyHitbox"):
