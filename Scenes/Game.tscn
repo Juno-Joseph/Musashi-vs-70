@@ -1,23 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmmqnw3kpxddu"]
+[gd_scene format=3 uid="uid://bmmqnw3kpxddu"]
 
 [ext_resource type="PackedScene" uid="uid://yiy48pse44h1" path="res://Scenes/musashi.tscn" id="1_pyid8"]
 [ext_resource type="PackedScene" uid="uid://dsrvwhc4je8us" path="res://Scenes/tile_map.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://c6ftkro2dd2r3" path="res://Scenes/Enemy/swordsman.tscn" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://hx8hr5igl3ok" path="res://Scenes/health_changed_manager.tscn" id="4_3dryh"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=1415710524]
 
-[node name="Musashi" parent="." instance=ExtResource("1_pyid8")]
+[node name="Musashi" parent="." unique_id=505365903 instance=ExtResource("1_pyid8")]
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Musashi"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Musashi" unique_id=1214572525]
 remote_path = NodePath("../../Camera2D")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1916923445]
 zoom = Vector2(3, 3)
 
-[node name="TileMap" parent="." instance=ExtResource("2_qxrlw")]
+[node name="TileMap" parent="." unique_id=2045455962 instance=ExtResource("2_qxrlw")]
 
-[node name="Swordsman" parent="." instance=ExtResource("3_wrm1d")]
+[node name="Swordsman" parent="." unique_id=510711209 instance=ExtResource("3_wrm1d")]
 position = Vector2(-220, 121)
 
-[node name="HealthChangedManager" parent="." instance=ExtResource("4_3dryh")]
+[node name="HealthChangedManager" parent="." unique_id=227215858 instance=ExtResource("4_3dryh")]

@@ -468,7 +468,7 @@ states/Run/node = SubResource("AnimationNodeBlendSpace2D_liv8l")
 states/Run/position = Vector2(699, 228.353)
 states/Start/position = Vector2(-11.84, 226.815)
 transitions = ["Run", "Idle", SubResource("AnimationNodeStateMachineTransition_tdweo"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_64gcv"), "Run", "Attack", SubResource("AnimationNodeStateMachineTransition_nh3om"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_310jx"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_gnn05"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_qv5rc"), "Block", "Run", SubResource("AnimationNodeStateMachineTransition_lwvwy"), "Run", "Block", SubResource("AnimationNodeStateMachineTransition_20ay2"), "Block", "Idle", SubResource("AnimationNodeStateMachineTransition_w65o3"), "Idle", "Block", SubResource("AnimationNodeStateMachineTransition_0t0so"), "Block", "Parry", SubResource("AnimationNodeStateMachineTransition_3polq"), "Attack", "Run", SubResource("AnimationNodeStateMachineTransition_dbxpg"), "Parry", "Idle", SubResource("AnimationNodeStateMachineTransition_3knp4"), "Hit", "Death", SubResource("AnimationNodeStateMachineTransition_evgsb"), "Idle", "Hit", SubResource("AnimationNodeStateMachineTransition_qa6vh"), "Hit", "Idle", SubResource("AnimationNodeStateMachineTransition_dpx1w"), "Attack", "Hit", SubResource("AnimationNodeStateMachineTransition_1dx7d"), "Run", "Hit", SubResource("AnimationNodeStateMachineTransition_w6gvt")]
-graph_offset = Vector2(-280, -50)
+graph_offset = Vector2(-346, -31)
 
 [sub_resource type="Animation" id="Animation_qv5rc"]
 resource_name = "Block_1"
@@ -3346,7 +3346,6 @@ libraries/ = SubResource("AnimationLibrary_plwqm")
 [node name="Damageable" type="Node" parent="." unique_id=1585391634]
 script = ExtResource("8_euevw")
 health = 150.0
-dead_animation_name = null
 metadata/_custom_type_script = "uid://c8lex8d0fw0mj"
 
 [node name="CharacterStateMachine" type="Node" parent="." unique_id=925901626 node_paths=PackedStringArray("character", "animation_tree", "current_state", "damageable_component", "hit_state", "dead_state", "block_state")]
@@ -3369,10 +3368,11 @@ script = ExtResource("7_lwvwy")
 attack_state = NodePath("../Attack")
 block_state = NodePath("../Block")
 
-[node name="Block" type="Node" parent="CharacterStateMachine" unique_id=44934944 node_paths=PackedStringArray("move_state", "attack_state")]
+[node name="Block" type="Node" parent="CharacterStateMachine" unique_id=44934944 node_paths=PackedStringArray("move_state", "damageable")]
 script = ExtResource("9_20ay2")
 move_state = NodePath("../Ground")
-attack_state = NodePath("../Attack")
+damageable = NodePath("../../Damageable")
+parry_window = 1.0
 can_move = false
 
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Block" unique_id=1409193138]
