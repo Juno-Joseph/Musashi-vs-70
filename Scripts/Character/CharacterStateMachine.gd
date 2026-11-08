@@ -45,6 +45,7 @@ func on_damage_taken_interrupt(node : Node, damage_amount : int, knockback_direc
 	else:
 		switch_states(dead_state)
 		playback.travel(damageable_component.dead_animation_name)
+		print("died")
 
 func switch_states(new_state: State):
 	if(current_state != null):

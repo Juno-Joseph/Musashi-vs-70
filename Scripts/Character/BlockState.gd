@@ -22,21 +22,23 @@ func on_enter():
 		
 	if parry_timer:
 		parry_timer.star(parry_window)
+	pass
 
 func on_exit():
 	can_move = true
 	is_parrying = false
 	if parry_timer and not parry_timer.is_stopped():
 		parry_timer.stop()
+	pass
 
 func state_inpur(event: InputEvent):
 	if event.is_action_released("Block") and not is_parrying:
 		emit_signal("interrupt_state", move_state)
+	pass
 
 func can_parry() -> bool:
 	return parry_timer != null and not parry_timer.is_stopped()
-
-
+	return false
 
 func _on_parry_area_hit(area):
 	if area.is_in_group("EnemyHitbox"):
@@ -49,6 +51,8 @@ func _on_parry_area_hit(area):
 		# After parry finishes, we return to move_state or stay in block?
 		 # Usually, you return to move_state to give the player control back.
 		emit_signal("interrupt_state", move_state)
+	pass
 
 func _on_timer_timeout():
 	emit_signal("interrupt_state", move_state)
+	pass
